@@ -1,0 +1,73 @@
+package u3e4menmay;
+import java.util.Random;
+
+public class metopila {
+    /*tope=raiz
+    pilaA =cima
+    pilaB=cima2
+    */
+    Nodo pilaA, pilaB,tope=null;
+    Random ale = new Random();
+    int nume, tam,tami;
+
+    public void insertar() {
+        /*
+        int numero = (int)(Math.random()*(X-Y+1)+Y;
+        int numero = (int)(Math.random()*(10-1+1)+1;
+         */
+        for (int a = 0; a < 10; a++) {
+            nume = ale.nextInt(10 - 1 + 1) + 1;
+            empuja(nume);
+            System.out.println(nume);
+        }
+    }
+
+    public void empuja(int nume) {
+        Nodo nodo=new Nodo(nume);
+        if(tope==null){
+            nodo.sig=pilaA;
+            pilaA=nodo;
+            tope=nodo;
+        }else{
+            if(tope.el<nodo.el){
+                nodo.sig=pilaA;
+                pilaA=nodo;
+                tam++;
+            }if(nodo.el<=tope.el){
+                Nodo nodos = new Nodo(nodo.el);
+                nodos.elsig=pilaB;
+                pilaB=nodos;
+                tami++;
+            }
+        }
+    }
+
+    public void mostrar() {
+        if (pilaA == null && pilaB == null) {
+            //NO tengo nadie o bueno datos
+            System.out.println("Pilas A y B vacia");
+        } else {
+            Nodo recorre = pilaA;
+            Nodo recorrer2 = pilaB;
+            
+            while (recorre != null) {
+                System.out.println(recorre.el);
+                recorre = recorre.sig;
+                
+                while (recorrer2 != null) {
+                    System.out.println(recorrer2.el);
+                    recorrer2 = recorrer2.elsig;
+                }
+            }
+        }
+    }
+
+    public void eliminar() {
+        if (tam == 0) {
+            System.out.println("No tienes datos Pila A");
+        } else {
+            pilaA = pilaA.sig;
+            tam--;
+        }
+    }
+}
