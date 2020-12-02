@@ -1,0 +1,48 @@
+package u3e4menmay;
+import java.util.Scanner;
+
+public class U3e4menmay {
+    /*
+    1. 10 Numeros aleatorios rango de 1 a 10  
+    2. Insertar el primer elemento en la pila A
+    3. Si el segundo número a insertar es mayor al elemento insertado en la pila
+    A, insertarlo por enceima de ese elemento anterior, si es igual o menor
+    insertar en la pila B.
+    4.Daré Mostrar podremos ver los datos que contienen ambas pilas A y B
+    5. Daré Eliminar solo en pila A
+     */
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        metopila objmetopila = new metopila();
+        int opc, c = 0;
+        do {
+            System.out.println(" *Numeros Aleatorios GamerPink* ");
+            System.out.println("-----------------------------");
+            System.out.println("1 Insertar Dato");
+            System.out.println("2 Mostrar Ambas Pilas");
+            System.out.println("3 Eliminar Solo Pila A");
+            System.out.println("4 Salir");
+            System.out.println("-----------------------------");
+            opc = entrada.nextInt();
+            System.out.println("-----------------------------");
+            switch (opc) {
+                case 1:
+                    objmetopila.insertar();
+                    System.out.println("******************************");
+                    break;
+                case 2:
+                    objmetopila.mostrar();
+                    System.out.println("******************************");
+                    break;
+                case 3:
+                    objmetopila.eliminar();
+                    System.out.println("******************************");
+                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+            }//switch
+        } while (c == 0);
+    }
+    
+}
