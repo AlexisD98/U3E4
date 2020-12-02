@@ -1,0 +1,12 @@
+package u3e4menmay;
+public class Nodo {
+    Nodo sig,elsig;
+    int el;
+    public Nodo(int el){
+        this.el=el;
+        this.sig=null;
+    }
+    public Nodo(){
+        
+    }
+}
